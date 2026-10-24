@@ -1,0 +1,55 @@
+@model IEnumerable<Academic_Administration_System.Models.Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Student Management</h2>
+<p>
+    <a asp-controller="Students"
+       asp-action="Create"
+       class="btn btn-primary">
+        + Add New Student
+    </a>
+</p>
+<p>Manage student records in the Academic Administration System.</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentID</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Email</td>
+                <td>@student.PhoneNumber</td>
+                <td>
+    <a asp-controller="Students"
+       asp-action="Edit"
+       asp-route-id="@student.StudentID"
+       class="btn btn-warning btn-sm">
+        Edit
+    </a>
+    <a asp-controller="Students"
+   asp-action="Delete"
+   asp-route-id="@student.StudentID"
+   class="btn btn-danger btn-sm">
+    Delete
+</a>
+</td>
+            </tr>
+        }
+    </tbody>
+</table>

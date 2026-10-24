@@ -1,0 +1,46 @@
+@model Academic_Administration_System.Models.Student
+
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<h2>Delete Student</h2>
+
+<h4 class="text-danger">
+    Are you sure you want to delete this student?
+</h4>
+
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Student ID</dt>
+        <dd class="col-sm-9">@Model.StudentID</dd>
+
+        <dt class="col-sm-3">First Name</dt>
+        <dd class="col-sm-9">@Model.FirstName</dd>
+
+        <dt class="col-sm-3">Last Name</dt>
+        <dd class="col-sm-9">@Model.LastName</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete"
+      asp-route-id="@Model.StudentID"
+      method="post">
+
+    <button type="submit" class="btn btn-danger">
+        Delete Student
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>
